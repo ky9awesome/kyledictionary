@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+{% block content %}
+    {% for entry in popular_entries %}
+        <div class="definition">
+            <p class="word"> {{ entry.word.capitalize() }}</p>
+            <p class="meaning"> {{ entry.meaning }}</p>
+            <p class="example"> {{ entry.example }}</p>
+            <p class="author"> {{ entry.author }}</p>
+            <p class="timestamp"> {{ entry.timestamp }}</p>
+        </div>
+        <br>
+    {% endfor %}
+{% endblock %}

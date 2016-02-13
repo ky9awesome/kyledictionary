@@ -17,9 +17,12 @@ def get_time():
 def index():
     today = get_date()
     time = get_time()
-    return render_template('_base.html',
+    popular_entries = models.Definition.query.order_by(models.Definition.timestamp.desc())
+    print(popular_entries)
+    return render_template('newest.html',
                            today=today,
-                           time=time)
+                           time=time,
+                           popular_entries=popular_entries)
 
 
 @app.route('/new_entry')
@@ -40,12 +43,14 @@ def add():
     meaning = request.form['meaning']
     example = request.form['example']
     views = 0
+    timestamp = datetime.datetime.utcnow()
 
     entry = models.Definition(author=author,
                               word=word,
                               meaning=meaning,
                               example=example,
-                              views=views)
+                              views=views,
+                              timestamp=timestamp)
 
     db.session.add(entry)
     db.session.commit()

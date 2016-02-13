@@ -63,7 +63,7 @@ form {
 }
 
 main {
-    height: 500px;
+    min-height: 500px;
     background: #f0f8ff;
     padding-top: 50px;
     border-top: solid 1px;
@@ -87,10 +87,19 @@ textarea {
 }
 
 #flash {
-    text-align: center;
     background: #1cdb4f;
     height: 30px;
     padding-top:15px;
     padding-bottom:15px;
     border-top: 1px solid;
+}
+
+.definition {
+    margin: auto;
+    width: 60%;
+    border: 1px solid;
+}
+
+.definition > p {
+    text-align: center;
 }

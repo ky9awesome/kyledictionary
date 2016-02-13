@@ -9,6 +9,7 @@ class Definition(db.Model):
     views = db.Column(db.Integer)
     votes_for = db.Column(db.Integer)
     votes_against = db.Column(db.Integer)
+    timestamp = db.Column(db.DateTime)
 
     def __repr__(self):
         return '<Definition %r>' % (self.word  + " : " + self.meaning)
