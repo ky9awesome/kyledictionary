@@ -1,0 +1,20 @@
+{% extends "_base.html" %}
+{% block content %}
+    <form action="{{ url_for('add') }}" method="post">>
+        <div>
+            <label>Author name:</label> <input type="text" required="required" name="author" placeholder="..." />
+        </div>
+        <div>
+            <label>Word to define:</label> <input type="text" required="required" name="word" placeholder="..." />
+        </div>
+        <div>
+            <label>Meaning:</label> <textarea rows="4" cols="50" required="required" name="meaning"></textarea>
+        </div>
+        <div>
+            <label>Example usage:</label> <textarea rows="4" cols="50" required="required" name="example"></textarea>
+        </div>
+        <div>
+            <p><input type="submit" value="Submit"></p>
+        </div>
+    </form>
+{% endblock %}
