@@ -8,16 +8,16 @@
 
     <body>
     <header>
-        <p id="title">KYLEdictionary - {{ today }}<p>
+        <p id="title">KYLEdictionary - {{ today }}</p>
 
-        <form action="/search" method=post>>
+        <form action="/search" method=post>
             <input id="search" type="text" name="search" placeholder="Type any word here...">
         </form>
 
         <div id="nav-menu">
             <ul id="menu-home">
-                <li id="menu-item-1" class="menu-item">By Views</li>
-                <li id="menu-item-2" class="menu-item">By Popularity</li>
+                <li id="menu-item-1" class="menu-item"><a href={{ url_for('index') }}>Most Recent</a></li>
+                <li id="menu-item-2" class="menu-item"><a href={{ url_for('popular') }}>Most Popular</a></li>
                 <li id="menu-item-3" class="menu-item"><a href="{{ url_for('new_entry') }}">Add definition</a></li>
             </ul>
         </div>

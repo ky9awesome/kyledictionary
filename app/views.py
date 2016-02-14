@@ -17,12 +17,25 @@ def get_time():
 def index():
     today = get_date()
     time = get_time()
-    popular_entries = models.Definition.query.order_by(models.Definition.timestamp.desc())
-    print(popular_entries)
+    newest_entries = models.Definition.query.order_by(models.Definition.timestamp.desc())
+    description = "Newest entries:"
     return render_template('newest.html',
                            today=today,
                            time=time,
-                           popular_entries=popular_entries)
+                           newest_entries=newest_entries,
+                           description=description)
+
+@app.route('/popular')
+def popular():
+    today = get_date()
+    time = get_time()
+    popular_entries = models.Definition.query.order_by(models.Definition.votes_for - models.Definition.votes_against)
+    description = "Most popular entries:"
+    return render_template('newest.html',
+                           today=today,
+                           time=time,
+                           newest_entries=popular_entries,
+                           description=description)
 
 
 @app.route('/new_entry')
@@ -76,4 +89,5 @@ def search_result(q):
     return render_template('search.html',
                            today=today,
                            time=time,
-                           r=results)
+                           r=results,
+                           query=q)

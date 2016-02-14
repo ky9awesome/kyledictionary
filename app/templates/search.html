@@ -1,9 +1,14 @@
 {% extends "_base.html" %}
 {% block content %}
+    {% if r %}
     {% for result in r %}
-        <p> {{ result.meaning }}</p>
-        <p> {{ result.example }}</p>
+        {% include 'individual_entry.html' %}
     {% endfor %}
+    {% else %}
+        <div id="callout">
+            <p>No one has defined '<span id="query">{{ query }}</span>' yet.  <a href="{{ url_for('new_entry') }}">You can be the first.</a></p>
+        </div>
+    {% endif %}
 {% endblock %}
 
 

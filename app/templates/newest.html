@@ -1,6 +1,7 @@
 {% extends "_base.html" %}
 {% block content %}
-    {% for entry in popular_entries %}
+<h2 class="heading">{{ description }}</h2>
+    {% for entry in newest_entries %}
         <div class="definition">
             <p class="word"> {{ entry.word.capitalize() }}</p>
             <p class="meaning"> {{ entry.meaning }}</p>

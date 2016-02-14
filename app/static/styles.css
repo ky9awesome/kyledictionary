@@ -8,6 +8,11 @@ body, form, input {
     border: 0;
     margin: 0;
     font-size: 12px;
+    text-align:center;
+}
+
+input {
+    text-align:left;
 }
 
 header {
@@ -17,7 +22,6 @@ header {
     color: #333;
     font-weight: bold;
     font-size: 40px;
-    text-align: center;
     padding-top: 20px;
 
 }
@@ -39,7 +43,6 @@ header {
 }
 
 footer {
-    text-align: center;
     background: #d1e0e1;
     height: 100px;
     padding-top: 50px;
@@ -56,10 +59,6 @@ li {
 
 li:hover {
     color: blue;
-}
-
-form {
-    text-align: center;
 }
 
 main {
@@ -100,6 +99,12 @@ textarea {
     border: 1px solid;
 }
 
-.definition > p {
-    text-align: center;
+.heading {
+    text-align: left;
+    margin-left: 20%;
 }
+
+#query {
+    font-weight: bold;
+}
+
