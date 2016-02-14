@@ -9,9 +9,15 @@
         <col width="10%">
     </colgroup>
     <tbody>
-    {% for record in newest_entries %}
+    {% for record in newest_entries.items %}
         {% include 'individual_entry.html' %}
     {% endfor %}
     </tbody>
 </table>
+
+<div id="page-nav">
+{% if newest_entries.has_prev %}<a href="{{ url_for('newest', page=newest_entries.prev_num) }}">&lt;&lt; Newer entries</a>{% else %}&lt;&lt; Newer entries{% endif %} |
+{% if newest_entries.has_next %}<a href="{{ url_for('newest', page=newest_entries.next_num) }}">Older entries &gt;&gt;</a>{% else %}Older posts &gt;&gt;{% endif %}
+</div>
+
 {% endblock %}

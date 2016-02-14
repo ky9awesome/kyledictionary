@@ -9,9 +9,15 @@
         <col width="10%">
     </colgroup>
     <tbody>
-    {% for record in popular_entries %}
+    {% for record in popular_entries.items %}
         {% include 'individual_entry.html' %}
     {% endfor %}
     </tbody>
 </table>
+
+<div id="page-nav">
+{% if popular_entries.has_prev %}<a href="{{ url_for('popular', page=popular_entries.prev_num) }}">&lt;&lt; More popular entries</a>{% else %}&lt;&lt; More popular entries{% endif %} |
+{% if popular_entries.has_next %}<a href="{{ url_for('popular', page=popular_entries.next_num) }}">Less popular entries &gt;&gt;</a>{% else %}Less popular entries &gt;&gt;{% endif %}
+</div>
+
 {% endblock %}
