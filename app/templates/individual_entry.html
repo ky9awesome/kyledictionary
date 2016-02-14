@@ -1,2 +1,23 @@
-<p> {{ result.meaning }}</p>
-<p> {{ result.example }}</p>
+<tr class="record">
+
+<td class="upvote">
+    {{ record.votes_for }}
+</td>
+
+<td class="details">
+    <h2 class="word">{{ record.word.capitalize() }}</h2>
+
+
+    <p class="author">Posted by {{ record.author }} on {{ record.timestamp }}</p>
+
+    <p class="meaning"> {{ record.meaning }}</p>
+    <p class="example"> {{ record.example }}</p>
+</td>
+
+<td class="downvote">
+    {{ record.votes_against }}
+</td>
+
+
+</tr>
+

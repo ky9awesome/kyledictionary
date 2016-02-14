@@ -1,6 +1,6 @@
 {% extends "_base.html" %}
 {% block content %}
-<h2 class="heading">Newest entries:</h2>
+<h2 class="heading">Most popular entries:</h2>
 
 <table id="definitions">
     <colgroup>
@@ -9,7 +9,7 @@
         <col width="10%">
     </colgroup>
     <tbody>
-    {% for record in newest_entries %}
+    {% for record in popular_entries %}
         {% include 'individual_entry.html' %}
     {% endfor %}
     </tbody>

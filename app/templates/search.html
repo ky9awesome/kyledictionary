@@ -1,9 +1,20 @@
 {% extends "_base.html" %}
 {% block content %}
+    <h2 class="heading">Results for '{{ query.capitalize() }}':</h2>
     {% if r %}
-    {% for result in r %}
+
+    <table id="definitions">
+    <colgroup>
+        <col width="10%">
+        <col width="50%">
+        <col width="10%">
+    </colgroup>
+    <tbody>
+    {% for record in r %}
         {% include 'individual_entry.html' %}
     {% endfor %}
+    </tbody>
+    </table>
     {% else %}
         <div id="callout">
             <p>No one has defined '<span id="query">{{ query }}</span>' yet.  <a href="{{ url_for('new_entry') }}">You can be the first.</a></p>

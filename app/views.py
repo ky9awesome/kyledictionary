@@ -13,7 +13,7 @@ def get_time():
 
 # views
 @app.route('/')
-@app.route('/index')
+@app.route('/newest')
 def index():
     today = get_date()
     time = get_time()
@@ -22,8 +22,7 @@ def index():
     return render_template('newest.html',
                            today=today,
                            time=time,
-                           newest_entries=newest_entries,
-                           description=description)
+                           newest_entries=newest_entries)
 
 @app.route('/popular')
 def popular():
@@ -31,11 +30,10 @@ def popular():
     time = get_time()
     popular_entries = models.Definition.query.order_by(models.Definition.votes_for - models.Definition.votes_against)
     description = "Most popular entries:"
-    return render_template('newest.html',
+    return render_template('popular.html',
                            today=today,
                            time=time,
-                           newest_entries=popular_entries,
-                           description=description)
+                           popular_entries=popular_entries)
 
 
 @app.route('/new_entry')
