@@ -111,7 +111,7 @@ textarea {
 }
 
 .upvote {
-    background-color: green;
+    background: #1cdb4f;;
     font-size: 20px;
     font-weight: bold;
 }
@@ -137,10 +137,6 @@ td > a {
 
 #page-nav {
     margin-top: 50px;
-}
-
-.upvote:hover {
-    color: black;
 }
 
 .details {

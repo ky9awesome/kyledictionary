@@ -1,11 +1,10 @@
 .*
 !/.gitignore
 __*
+app.db-journal
 !/__init__.py
-app.db
 db_create.py
 db_migrate.py
 db_repository
 app/__pycache__*
-!/.gitignore
 env
