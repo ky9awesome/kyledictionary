@@ -88,7 +88,7 @@ def search():
 @app.route('/search/<q>/<page>')
 def search_result(q, page=1):
     today = get_date()
-    time = get_time
+    time = get_time()
     results = models.Definition.query.filter_by(word=q).order_by(models.Definition.votes_for.desc()).paginate(page, POSTS_PER_PAGE, False)
     if results.items == []:
         return render_template('search.html',
