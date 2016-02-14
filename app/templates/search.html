@@ -10,7 +10,7 @@
     <header>
         <p id="title">KYLEdictionary - {{ today }}<p>
 
-        <form action="/search" method=post>>
+        <form action="/search" method=post>
             <input id="search" type="text" name="search" placeholder="Type any word here...">
         </form>
 
@@ -34,8 +34,10 @@
     {% endwith %}
 
     <main>
-        {% block content %}
-        {% endblock %}
+        {% for result in r %}
+            <p> {{ result.meaning }}</p>
+            <p> {{ result.example }}</p>
+        {% endfor %}
     </main>
 
     <footer>

@@ -57,3 +57,23 @@ def add():
 
     flash('Thanks for your entry!')
     return redirect(url_for('index'))
+
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    if request.method == "POST":
+        q = request.form['search']
+        return redirect(url_for('search_result',
+                        q=q))
+    return redirect(url_for('index'))
+
+
+@app.route('/search/<q>')
+def search_result(q):
+    today = get_date()
+    time = get_time
+    results = models.Definition.query.filter_by(word=q).all()
+    return render_template('search.html',
+                           today=today,
+                           time=time,
+                           r=results)
