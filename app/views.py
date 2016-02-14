@@ -72,7 +72,7 @@ def add():
     db.session.commit()
 
     flash('Thanks for your entry!')
-    return redirect(url_for('index'))
+    return redirect(url_for('newest'))
 
 
 @app.route('/search', methods=['GET', 'POST'])
@@ -85,10 +85,11 @@ def search():
 
 
 @app.route('/search/<q>')
-def search_result(q):
+@app.route('/search/<q>/<page>')
+def search_result(q, page=1):
     today = get_date()
     time = get_time
-    results = models.Definition.query.filter_by(word=q).all()
+    results = models.Definition.query.filter_by(word=q).order_by(models.Definition.votes_for.desc()).paginate(page, POSTS_PER_PAGE, False)
     return render_template('search.html',
                            today=today,
                            time=time,

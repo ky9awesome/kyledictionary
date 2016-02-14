@@ -142,3 +142,21 @@ td > a {
 .upvote:hover {
     color: black;
 }
+
+.details {
+    border: solid 1px;
+}
+
+.author {
+    font-size:10px;
+    font-style:italic;
+}
+
+.example {
+    font-style:italic;
+}
+
+.details > .word {
+    margin-right: 400px;
+    text-decoration:underline;
+}

@@ -9,12 +9,24 @@
         <col width="50%">
         <col width="10%">
     </colgroup>
+    <thead>
+        <tr>
+            <th>Upvotes</th>
+            <th></th>
+            <th>Downvotes</th>
+        </tr>
+    </thead>
     <tbody>
-    {% for record in r %}
+    {% for record in r.items %}
         {% include 'individual_entry.html' %}
     {% endfor %}
     </tbody>
     </table>
+    <div id="page-nav">
+    {% if r.has_prev %}<a href="{{ url_for('popular', page=r.prev_num) }}">&lt;&lt; More popular entries</a>{% else %}&lt;&lt; More popular entries{% endif %} |
+    {% if r.has_next %}<a href="{{ url_for('popular', page=r.next_num) }}">Less popular entries &gt;&gt;</a>{% else %}Less popular entries &gt;&gt;{% endif %}
+    </div>
+
     {% else %}
         <div id="callout">
             <p>No one has defined '<span id="query">{{ query }}</span>' yet.  <a href="{{ url_for('new_entry') }}">You can be the first.</a></p>

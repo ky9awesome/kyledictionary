@@ -8,6 +8,13 @@
         <col width="50%">
         <col width="10%">
     </colgroup>
+    <thead>
+        <tr>
+            <th>Upvotes</th>
+            <th></th>
+            <th>Downvotes</th>
+        </tr>
+    </thead>
     <tbody>
     {% for record in newest_entries.items %}
         {% include 'individual_entry.html' %}
