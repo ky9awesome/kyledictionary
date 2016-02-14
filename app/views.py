@@ -60,7 +60,7 @@ def add():
     timestamp = datetime.datetime.utcnow()
 
     entry = models.Definition(author=author,
-                              word=word,
+                              word=word.lower(),
                               meaning=meaning,
                               example=example,
                               views=views,
@@ -78,7 +78,7 @@ def add():
 @app.route('/search', methods=['GET', 'POST'])
 def search():
     if request.method == "POST":
-        q = request.form['search']
+        q = request.form['search'].lower()
         return redirect(url_for('search_result',
                         q=q))
     return redirect(url_for('newest'))
