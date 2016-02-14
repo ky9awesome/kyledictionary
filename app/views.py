@@ -61,7 +61,9 @@ def add():
                               meaning=meaning,
                               example=example,
                               views=views,
-                              timestamp=timestamp)
+                              timestamp=timestamp,
+                              votes_for=0,
+                              votes_against=0)
 
     db.session.add(entry)
     db.session.commit()
@@ -89,3 +91,26 @@ def search_result(q):
                            time=time,
                            r=results,
                            query=q)
+
+@app.route('/upvote/<int:record_id>/')
+def upvote(record_id):
+    record = models.Definition.query.filter_by(id=record_id).first()
+    record.votes_for += 1
+
+    db.session.add(record)
+    db.session.commit()
+
+    flash('Thanks for your vote!')
+    return redirect(url_for('index'))
+
+@app.route('/downvote/<int:record_id>/')
+def downvote(record_id):
+    record = models.Definition.query.filter_by(id=record_id).first()
+    record.votes_against -= 1
+
+    db.session.add(record)
+    db.session.commit()
+
+    flash('Thanks for your vote!')
+    return redirect(url_for('index'))
+

@@ -1,7 +1,9 @@
 <tr class="record">
 
 <td class="upvote">
-    {{ record.votes_for }}
+    <a href="{{ url_for('upvote', record_id = record.id) }}">
+        {{ record.votes_for }}
+    </a>
 </td>
 
 <td class="details">
@@ -15,7 +17,9 @@
 </td>
 
 <td class="downvote">
-    {{ record.votes_against }}
+    <a href=" {{url_for('downvote', record_id = record.id) }}">
+        {{ record.votes_against }}
+    </a>
 </td>
 
 
